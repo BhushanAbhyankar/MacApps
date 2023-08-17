@@ -24,10 +24,13 @@ struct ContentView: View {
                         Text("the item is inputted at \(item.timestamp ?? .now, formatter: itemFormatter)").accessibilityHint("This is some info")
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
+                            .foregroundColor(.black)
                     }
                 }
                 .onDelete(perform: deleteItems)
+                .background(.white)
             }
+            .background(.red)
             .toolbar {
                 ToolbarItem {
                     Button(action: addItem) {
@@ -37,6 +40,7 @@ struct ContentView: View {
             }
             Text("Select an item")
         }
+        .background(.blue)
     }
 
     private func addItem() {
@@ -47,8 +51,6 @@ struct ContentView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
