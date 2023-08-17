@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item located at \(item.timestamp ?? .now, formatter: itemFormatter)").accessibilityHint("This is some info")
+                        Text("the item is inputted at \(item.timestamp ?? .now, formatter: itemFormatter)").accessibilityHint("This is some info")
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }
